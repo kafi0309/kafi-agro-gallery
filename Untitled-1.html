@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EID UL ADHA</title>
+  
+  <!-- Stylish font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  
+  <style>
+    body {
+      background-color: #FDFBD4;
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 0;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-top: 0;
+      color: red;
+      letter-spacing: 2px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: blue;
+      text-align: center;
+      margin-top: 10px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      user-select: none;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    .cow-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+      max-width: 1000px;
+    }
+
+    .cow-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+    .cow-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+
+    .cow-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .price {
+      color: blue;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 12px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 650px) {
+      .cow-card {
+        width: 90%;
+      }
+    }
+    /* Modal overlay fills screen, hidden by default */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* semi-transparent dark background */
+  display: none; /* hidden initially */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  max-width: 90%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  color: blue;
+}
+
+/* Close button styling */
+#close-modal {
+  margin-top: 20px;
+  padding: 8px 20px;
+  font-weight: 700;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#close-modal:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>EID UL ADHA</h1>
+  <h2>QURBANI COW</h2>
+  <div class="brand-name">KAFI AGRO</div>
+
+  <section class="cow-gallery">
+    <div class="cow-card">
+      <img src="cow1.png" alt="Cow 1" />
+      <div class="price">120,000 BDT</div>
+    </div>
+    <div class="cow-card">
+      <img src="cow2.png" alt="Cow 2" />
+      <div class="price">300,000 BDT</div>
+    </div>
+    <div class="cow-card">
+      <img src="cow3.png" alt="Cow 3" />
+      <div class="price">210,000 BDT</div>
+    </div>
+    <div class="cow-card">
+      <img src="cow4.png" alt="Cow 4" />
+      <div class="price">70,000 BDT</div>
+    </div>
+    <div class="cow-card">
+      <img src="cow5.png" alt="Cow 5" />
+      <div class="price">630,000 BDT</div>
+    </div>
+    <div class="cow-card">
+      <img src="cow6.png" alt="Cow 6" />
+      <div class="price">9,600,000 BDT</div>
+    </div>
+  </section>
+<!-- Modal Structure -->
+<div id="popup-modal" class="modal-overlay">
+  <div class="modal-content">
+    <p><strong>To purchase visit KAFI AGRO.<br>Address - Baharchara, Cox's Bazar</strong></p>
+    <button id="close-modal">Close</button>
+  </div>
+</div>
+<script>
+  const modal = document.getElementById('popup-modal');
+  const closeBtn = document.getElementById('close-modal');
+  const cowImages = document.querySelectorAll('.cow-card img');
+
+  // When any cow image is clicked, show the modal
+  cowImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+  });
+
+  // Close modal on clicking the close button
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Also close modal when clicking outside modal content
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal){
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+
+</body>
+</html>
